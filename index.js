@@ -6,7 +6,7 @@ let bodyParser = require('body-parser');
 let mongoose = require('mongoose');
 // Initialize the app
 let app = express();
-
+let server = require('http').Server(app);
 // Import routes
 let apiRoutes = require("./api-routes")
 
@@ -37,6 +37,6 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 app.use('/api', apiRoutes)
 
 // Launch app to listen to specified port
-app.listen(port, function () {
-    console.log("Running RestHub on port " + port);
+server.listen(port, function() {
+    console.log("App is running on port " + port);
 });
