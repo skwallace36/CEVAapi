@@ -11,6 +11,12 @@ router.get('/', function (req, res) {
 
 // Import contact controller
 var contactController = require('./contactController');
+var projectController = require('./projectController');
+
+router.route('/projects')
+    .get(projectController.allProjects)
+    .post(projectController.newProject)
+    .delete(projectController.clearProjects);
 
 // Contact routes
 router.route('/contacts')
