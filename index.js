@@ -10,6 +10,8 @@ let server = require('http').Server(app);
 // Import routes
 let apiRoutes = require("./api-routes")
 
+var cors = require('cors')
+app.use(cors())
 
 // Configure bodyparser to handle post requests
 app.use(bodyParser.urlencoded({
@@ -37,6 +39,6 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 app.use('/api', apiRoutes)
 
 // Launch app to listen to specified port
-server.listen(port, function() {
+.listen(port, function() {
     console.log("App is running on port " + port);
 });
