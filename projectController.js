@@ -24,6 +24,7 @@ exports.newProject = function (req, res) {
     project.name = req.body.name ? req.body.name : project.name;
     project.teamMembers = req.body.teamMembers;
     project.teamId = req.body.teamId;
+    project.votes = 0;
 
 
     // save the contact and check for errors
@@ -48,6 +49,24 @@ exports.clearProjects = function (req, res) {
 
         res.json({
             message: 'projects cleared',
+        });
+    });
+};
+
+
+exports.voteForProject = function(req,res) {
+    // Project.findOneAndUpdate({"teamId":req.body.teamId}, {$inc: {"votes": 1} });
+    Project.findOneAndUpdate({ teamId: req.body.teamId }, { $inc: {votes: 1}}, function(err, proj) {
+        if (err) {
+            res.json({
+                status: "error",
+                message: err,
+            });
+        }
+        res.json({
+            status: "success",
+            message: "Project for vote retrieved successfully",
+            data: proj
         });
     });
 };

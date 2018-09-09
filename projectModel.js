@@ -12,6 +12,10 @@ var projectSchema = mongoose.Schema({
     teamId: {
         type: String,
         required: true
+    },
+    votes: {
+        type: Number,
+        required: true
     }
 });
 

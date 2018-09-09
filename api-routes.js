@@ -17,6 +17,8 @@ router.route('/projects')
     .get(projectController.allProjects)
     .post(projectController.newProject)
     .delete(projectController.clearProjects);
+router.route('/projects/vote')
+    .post(projectController.voteForProject);
 
 // Contact routes
 router.route('/contacts')
