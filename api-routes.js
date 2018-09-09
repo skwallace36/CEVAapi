@@ -10,26 +10,27 @@ router.get('/', function (req, res) {
 });
 
 // Import contact controller
-var contactController = require('./contactController');
 var projectController = require('./projectController');
 
+
+//GET projects
+//POST new project with name, teamId, teamMembers
+//DELETE all project
 router.route('/projects')
     .get(projectController.allProjects)
     .post(projectController.newProject)
     .delete(projectController.clearProjects);
-router.route('/projects/vote')
-    .post(projectController.voteForProject);
 
-// Contact routes
-router.route('/contacts')
-    .get(contactController.index)
-    .post(contactController.new);
+//VOTE FOR A PROJECT
+//post the teamId and it will auto increment votes
+router.route('/projects/vote').post(projectController.voteForProject);
 
-router.route('/contacts/:contact_id')
-    .get(contactController.view)
-    .patch(contactController.update)
-    .put(contactController.update)
-    .delete(contactController.delete);
+//VOTE FOR A PROJECT
+//post the teamId and comment in body
+router.route('/projects/comment').post(projectController.commentForProject);
+
+
+
 
 // Export API routes
 module.exports = router;

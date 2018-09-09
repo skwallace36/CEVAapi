@@ -16,6 +16,10 @@ var projectSchema = mongoose.Schema({
     votes: {
         type: Number,
         required: true
+    },
+    comments: {
+        type: [String],
+        required: true
     }
 });
 

@@ -25,7 +25,7 @@ exports.newProject = function (req, res) {
     project.teamMembers = req.body.teamMembers;
     project.teamId = req.body.teamId;
     project.votes = 0;
-
+    project.comments = [];
 
     // save the contact and check for errors
     project.save(function (err) {
@@ -55,8 +55,7 @@ exports.clearProjects = function (req, res) {
 
 
 exports.voteForProject = function(req,res) {
-    // Project.findOneAndUpdate({"teamId":req.body.teamId}, {$inc: {"votes": 1} });
-    Project.findOneAndUpdate({ teamId: req.body.teamId }, { $inc: {votes: 1}}, function(err, proj) {
+    Project.findOneAndUpdate({ teamId: req.body.teamId }, { $inc: {votes: 1}}, {new: true}, function(err, proj) {
         if (err) {
             res.json({
                 status: "error",
@@ -65,7 +64,24 @@ exports.voteForProject = function(req,res) {
         }
         res.json({
             status: "success",
-            message: "Project for vote retrieved successfully",
+            message: "voted for project",
+            data: proj
+        });
+    });
+};
+
+exports.commentForProject = function(req, res) {
+    console.log(req.body.teamId);
+    Project.findOneAndUpdate({ teamId: req.body.teamId }, { $push: {comments: req.body.comment}}, {new: true}, function(err, proj) {
+        if (err) {
+            res.json({
+                status: "error",
+                message: err,
+            });
+        }
+        res.json({
+            status: "success",
+            message: "commented on project",
             data: proj
         });
     });
