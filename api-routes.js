@@ -21,6 +21,9 @@ router.route('/projects')
     .post(projectController.newProject)
     .delete(projectController.clearProjects);
 
+router.route('/projects/expo')
+    .get(adminController.getProjectsForExpo);
+
 
 
 //VOTE FOR A PROJECT
@@ -37,7 +40,6 @@ router.route('/projects/comment').post(projectController.commentForProject);
 
 //GET VOTING RESULTS
 router.route('/voting/results').get(adminController.getResults);
-router.route('/voting/results/expo').get(adminController.getResultsForExpo);
 
 
 // Export API routes

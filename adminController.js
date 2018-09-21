@@ -20,8 +20,9 @@ exports.getResults = function (req, res) {
 };
 
 
-exports.getResultsForExpo = function(req, res) {
-    var query = Project.find({"expo":req.body.expo});
+exports.getProjectsForExpo = function(req, res) {
+    console.log(req.headers.expo)
+    var query = Project.find({"expo":req.headers.expo});
     query.exec(function (err, projects) {
         if (err) {
             res.json({
@@ -31,7 +32,7 @@ exports.getResultsForExpo = function(req, res) {
         }
         res.json({
             status: "success",
-            message: "voting results retrieved successfully",
+            message: "projects for expo retrieved successfully",
             data: projects
         });
     });
