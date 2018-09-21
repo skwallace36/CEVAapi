@@ -26,6 +26,7 @@ exports.newProject = function (req, res) {
     project.teamId = req.body.teamId;
     project.votes = 0;
     project.comments = [];
+    project.expo = req.body.expo;
 
     // save the contact and check for errors
     project.save(function (err) {
@@ -69,6 +70,8 @@ exports.voteForProject = function(req,res) {
         });
     });
 };
+
+
 
 exports.commentForProject = function(req, res) {
     console.log(req.body.teamId);

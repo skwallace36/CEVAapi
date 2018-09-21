@@ -20,6 +20,10 @@ var projectSchema = mongoose.Schema({
     comments: {
         type: [String],
         required: true
+    },
+    expo: {
+        type: String,
+        required: true
     }
 });
 
