@@ -46,7 +46,8 @@ router.route('/voting/results').get(adminController.getResults);
 //EXPOSITION ROUTES
 router.route('/expositions').get(expositionController.getExpositions);
 router.route('/expositions').post(expositionController.newExposition);
-
+router.route('/expositions').delete(expositionController.clearExpositions);
+router.route('/expositions/expo').get(expositionController.getExpo);
 
 // Export API routes
 module.exports = router;
