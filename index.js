@@ -7,8 +7,12 @@ let mongoose = require('mongoose');
 // Initialize the app
 let app = express();
 let server = require('http').Server(app);
+
+let formidable = require('formidable');
 // Import routes
-let apiRoutes = require("./api-routes")
+let apiRoutes = require("./routes/api-routes")
+let eventRoutes = require("./routes/event-routes")
+let sessionRoutes = require("./routes/session-routes")
 
 var cors = require('cors')
 app.use(cors())
@@ -37,6 +41,9 @@ app.get('/', (req, res) => res.send('Hello World with Express'));
 
 // Use Api routes in the App
 app.use('/api', apiRoutes)
+app.use('/event', eventRoutes)
+app.use('/session', sessionRoutes)
+
 
 // Launch app to listen to specified port
 .listen(port, function() {

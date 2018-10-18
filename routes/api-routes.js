@@ -10,9 +10,9 @@ router.get('/', function (req, res) {
 });
 
 // Import contact controller
-var projectController = require('./projectController');
-var adminController = require('./adminController');
-var expositionController = require('./expositionController');
+var projectController = require('../projectController');
+var adminController = require('../adminController');
+var expositionController = require('../expositionController');
 
 //GET projects with no parameters
 //POST new project with [name], [teamId], [teamMembers]
