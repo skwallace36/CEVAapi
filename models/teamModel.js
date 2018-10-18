@@ -9,6 +9,30 @@ var teamSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    teamnumber: {
+        type: String,
+        required: true
+    },
+    tablenumber: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    section: {
+        type: String,
+        required: true
+    },
+    ampm: {
+        type: String,
+        required: true
+    }
 });
 
 

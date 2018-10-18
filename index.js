@@ -7,6 +7,8 @@ let mongoose = require('mongoose');
 // Initialize the app
 let app = express();
 let server = require('http').Server(app);
+
+let formidable = require('formidable');
 // Import routes
 let apiRoutes = require("./routes/api-routes")
 let eventRoutes = require("./routes/event-routes")
