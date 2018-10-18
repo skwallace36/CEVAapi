@@ -13,7 +13,8 @@ var sessionController = require('../controllers/sessionController');
 
 router.route('/')
     .get(sessionController.getAllSessions)
-
+router.route('/projects')
+    .get(sessionController.getProjectsForSession)
 
 // Export API routes
 module.exports = router;
