@@ -32,6 +32,10 @@ var teamSchema = mongoose.Schema({
     ampm: {
         type: String,
         required: true
+    },
+    votes: {
+        type: Number,
+        default: 0
     }
 });
 

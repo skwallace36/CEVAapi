@@ -159,3 +159,12 @@ exports.postTeams = function(req, res) {
     
     res.json({'success':'true'});
 }
+
+exports.voteForTeam = function(req,res) {
+    Team.findOneAndUpdate({ id: req.body.id }, { $inc: {votes: 1}}, {new: true}, function(err, proj) {
+        if (err) {
+            res.json(err);
+        }
+        res.json(proj);
+    });
+}

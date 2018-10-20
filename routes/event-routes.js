@@ -21,5 +21,8 @@ router.route('/teams')
 
 router.route('/team')
     .post(eventController.insertTeam)
+
+router.route('/team/vote')
+    .post(eventController.voteForTeam)
 // Export API routes
 module.exports = router;
