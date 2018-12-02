@@ -127,9 +127,9 @@ exports.postTeams = function(req, res) {
     // form.parse(req);
     var amsession;
     form.parse(req, function(err, fields, files) {
-        console.log(fields);
-        console.log(files.uploadFile);
-        console.log(files.file);
+        // console.log(fields);
+        // console.log(files.uploadFile);
+        // console.log(files.file);
         readXlsxFile(files.uploadFile.path).then((rows) => {
             for(let r in rows) {
                 var team = new Team();

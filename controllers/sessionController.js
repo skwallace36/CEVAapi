@@ -29,7 +29,6 @@ exports.getProjectsForSession = function (req, res) {
         });
         
 
-
     });
     // res.json("lol");
 };
